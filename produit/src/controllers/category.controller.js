@@ -1,4 +1,6 @@
-exports.create =async(req, res)=>{}
+exports.create =async(req, res)=>{
+ 
+}
 exports.getAll = async (req, res) => {};
 exports.findById = async (req, res) => {};
 exports.getProducts= async (req, res) => {};
