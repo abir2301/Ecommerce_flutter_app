@@ -14,14 +14,15 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.FLOAT,
         defaultValue: 0.0,
       },
-      // date_creation: {
-      //   type: Sequelize.DATE,
-      //   // defaultValue: Sequelize.NOW,
-      // },
-      // date_limit: {
-      //   type: Sequelize.DATETIME,
-      //   //defaultValue: Sequelize.NOW,
-      // },
+      date_creation: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+      },
+      //mm//dd//yyyy
+      date_limit: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+      },
     },
     {
       timestamps: true,
