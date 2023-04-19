@@ -5,9 +5,13 @@
   "metadata": {
     "endpoints": [
       {
-        "url": "/api/products",
+        "path": "/api/products",
         "method": "POST",
         "description": "Create a new product.",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
         "requestBody": {
           "name": "string",
           "price": "number",
@@ -16,16 +20,21 @@
         "responseBody": {
           "id": "number",
           "name": "string",
-          "price": "number"
+          "price": "number", 
+          "categoryId": "number"
         }
       },
       {
-        "url": "/api/products",
+        "path": "/api/products",
         "method": "GET",
         "description": "Get all products with details.",
         "queryParams": {
           "name": "string"
         },
+        "auth": {
+        "type": "jwt",
+        "roles": ["user", "admin"]
+      },
         "responseBody": [
           {
             "id": "number",
@@ -58,12 +67,14 @@
         ]
       },
       {
-        "url": "/api/products/:id",
+        "path": "/api/products/:id",
         "method": "GET",
         "description": "Retrieve a single product by ID.",
-        "pathParams": {
-          "id": "number"
-        },
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["user", "admin"]
+      },
         "responseBody": {
           "id": "number",
           "name": "string",
@@ -94,14 +105,16 @@
         }
       },
       {
-        "url": "/api/products/:id",
+        "path": "/api/products/:id",
         "method": "PUT",
         "description": "Update a product by ID.",
-        "pathParams": {
-          "id": "number"
-        },
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": [ "admin"]
+      },
         "requestBody": {
-          "name": "string",
+          "name": "string" ,
           "price": "number",
           "categoryId": "number"
         },
@@ -110,34 +123,41 @@
         }
       },
       {
-        "url": "/api/products/:id",
+        "path": "/api/products/:id",
         "method": "DELETE",
         "description": "Delete a product by ID.",
-        "pathParams": {
-          "id": "number"
-        },
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
         "responseBody": {
           "message": "string"
         }
       },
       {
-        "url": "/api/products",
+        "path": "/api/products",
         "method": "DELETE",
         "description": "Delete all products.",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
         "responseBody": {
           "message": "string"
         }
       },
+      
       {
-        "url": "/api/products/details/:id",
+        "path": "/api/products/details/:id",
         "method": "POST",
         "description": "Create product details for a product.",
-        "pathParams": {
-          "id": "number"
-        },
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
         "requestBody": {
-         
-                
                 "cart_desc": "string",
                 "long_desc": "string" , 
                 "img" :"string"
@@ -150,7 +170,261 @@
             "img" :"string"
           
         }
+      },
+      {
+        "path": "/api/products/details/:id",
+        "method": "PUT",
+        "description": "update  product details for a product.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "requestBody": {
+                "cart_desc": "string",
+                "long_desc": "string" , 
+                "img" :"string"
+              
+        },
+        "responseBody": {
+          "message": "string"
+          
+        }
+      },
+      {
+        "path": "/api/products/details/:id",
+        "method": "DELETE",
+        "description": "delete  product details for a product.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        
+        "responseBody": {
+          "message": "string"
+          
+        }
+      },
+    
+
+      {
+        "path": "/api/categories",
+        "method": "POST",
+        "description": "Create a new category .",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "requestBody": {
+          "name": "string",
+          "desc": "string"
+         
+        },
+        "responseBody": {
+          "id": "number",
+          "name": "string",
+          "desc": "string"
+        
+        }
+      },
+      {
+        "path": "/api/categories",
+        "method": "GET",
+        "description": "Get all categories .",
+        "queryParams": {
+          "name": "string"
+        },
+        "auth": {
+        "type": "jwt",
+        "roles": ["user", "admin"]
+      },
+        "responseBody": [
+          {
+            "id": "number",
+            "name": "string",
+            "desc": "string"        
+          }
+        ]
+      },
+      {
+        "path": "/api/categories/:id",
+        "method": "GET",
+        "description": "Retrieve a single category  by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          
+            "id": "number",
+            "name": "string",
+            "desc": "string"        
+          
+        }
+      },
+      {
+        "path": "/api/categories/:id",
+        "method": "PUT",
+        "description": "Update a category by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": [ "admin"]
+      },
+        "requestBody": {
+          "name": "string" ,
+          "desc": "string"
+         
+        },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "path": "/api/categories/:id",
+        "method": "DELETE",
+        "description": "Delete a category by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "path": "/api/categories",
+        "method": "DELETE",
+        "description": "Delete all categories.",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+     
+     
+     
+    
+
+ {
+        "path": "/api/discounts",
+        "method": "POST",
+        "description": "Create a new discount .",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "requestBody": {
+          "name": "string",
+          "desc": "string"
+         
+        },
+        "responseBody": {
+          "id": "number",
+          "name": "string",
+          "desc": "string"
+        
+        }
+      },
+      {
+        "path": "/api/discounts",
+        "method": "GET",
+        "description": "Get all active  discounts .",
+        "queryParams": {
+          "name": "string"
+        },
+        "auth": {
+        "type": "jwt",
+        "roles": ["user", "admin"]
+      },
+        "responseBody": [
+          {
+            "id": "number",
+            "name": "string",
+            "desc": "string"   , 
+            "products" :[
+              {"id" :"number", 
+            "name" : "string", 
+          "price":"number"}
+            ]
+
+          }
+        ]
+      },
+      {
+        "path": "/api/discounts/:id",
+        "method": "GET",
+        "description": "Retrieve a single discount  by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          
+            "id": "number",
+            "name": "string",
+            "desc": "string"      , 
+            "products" :[
+              {"id" :"number", 
+            "name" : "string", 
+          "price":"number"}
+            ]
+
+          
+        }
+      },
+      {
+        "path": "/api/discounts/:id",
+        "method": "PUT",
+        "description": "Update a discount by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": [ "admin"]
+      },
+        "requestBody": {
+          "name": "string" ,
+          "desc": "string"
+         
+        },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "path": "/api/discounts/:id",
+        "method": "DELETE",
+        "description": "Delete a discount by ID.",
+        "params": ["id"],
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "path": "/api/discounts",
+        "method": "DELETE",
+        "description": "Delete all discounts.",
+        "auth": {
+        "type": "jwt",
+        "roles": ["admin"]
+      },
+        "responseBody": {
+          "message": "string"
+        }
       }
+     
+
     ]
        
    }}
