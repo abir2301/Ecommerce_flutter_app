@@ -20,7 +20,7 @@ exports.create = async (req, res) => {
       const detail = {
         cart_desc: req.body.cart_desc,
         long_desc: req.body.long_desc,
-        // img: req.body.img,
+        img: req.body.img,
         productId: id,
       };
 

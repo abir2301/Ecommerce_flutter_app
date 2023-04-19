@@ -1,0 +1,156 @@
+{
+  "name": "Product",
+  "description": "A microservice for managing products.",
+  "version": "1.0.0",
+  "metadata": {
+    "endpoints": [
+      {
+        "url": "/api/products",
+        "method": "POST",
+        "description": "Create a new product.",
+        "requestBody": {
+          "name": "string",
+          "price": "number",
+          "categoryId": "number"
+        },
+        "responseBody": {
+          "id": "number",
+          "name": "string",
+          "price": "number"
+        }
+      },
+      {
+        "url": "/api/products",
+        "method": "GET",
+        "description": "Get all products with details.",
+        "queryParams": {
+          "name": "string"
+        },
+        "responseBody": [
+          {
+            "id": "number",
+            "name": "string",
+            "price": "number",
+            "details": [
+              {
+                "id": "number",
+                "cart_desc": "string",
+                "long_desc": "string" , 
+                "img" :"string"
+              }
+            ],
+            "discounts": [
+              {
+                "id": "number",
+                "name": "string",
+                "desc" :"string",
+                "percent" :"float",
+                "data_creation" :"date" ,
+                "data_limit" :"date"
+              }
+            ],
+            "category": {
+              "id": "number",
+              "name": "string" ,
+              "desc" :"string"
+            }
+          }
+        ]
+      },
+      {
+        "url": "/api/products/:id",
+        "method": "GET",
+        "description": "Retrieve a single product by ID.",
+        "pathParams": {
+          "id": "number"
+        },
+        "responseBody": {
+          "id": "number",
+          "name": "string",
+          "price": "number",
+          "details": [
+            {
+                "id": "number",
+                "cart_desc": "string",
+                "long_desc": "string" , 
+                "img" :"string"
+              }
+          ],
+          "discounts": [
+            {
+                "id": "number",
+                "name": "string",
+                "desc" :"string",
+                "percent" :"float",
+                "data_creation" :"date" ,
+                "data_limit" :"date"
+              }
+          ],
+          "category": {
+              "id": "number",
+              "name": "string" ,
+              "desc" :"string"
+            }
+        }
+      },
+      {
+        "url": "/api/products/:id",
+        "method": "PUT",
+        "description": "Update a product by ID.",
+        "pathParams": {
+          "id": "number"
+        },
+        "requestBody": {
+          "name": "string",
+          "price": "number",
+          "categoryId": "number"
+        },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "url": "/api/products/:id",
+        "method": "DELETE",
+        "description": "Delete a product by ID.",
+        "pathParams": {
+          "id": "number"
+        },
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "url": "/api/products",
+        "method": "DELETE",
+        "description": "Delete all products.",
+        "responseBody": {
+          "message": "string"
+        }
+      },
+      {
+        "url": "/api/products/details/:id",
+        "method": "POST",
+        "description": "Create product details for a product.",
+        "pathParams": {
+          "id": "number"
+        },
+        "requestBody": {
+         
+                
+                "cart_desc": "string",
+                "long_desc": "string" , 
+                "img" :"string"
+              
+        },
+        "responseBody": {
+          "id": "number",
+          "cart_desc": "string",
+           "long_desc": "string" , 
+            "img" :"string"
+          
+        }
+      }
+    ]
+       
+   }}
