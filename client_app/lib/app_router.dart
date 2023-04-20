@@ -8,6 +8,7 @@ import 'package:e_commerce_example_flutter/features/products/presentation/view/p
 
 import 'features/auth/presentation/view/pages/login_page.dart';
 import 'features/auth/presentation/view/pages/register_page.dart';
+import 'features/products/presentation/view/pages/tabbar.dart';
 
 class AppRouter {
   static late FluroRouter router;
@@ -24,14 +25,20 @@ class AppRouter {
 
   static Handler registerHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+        print("regsiter screen");
     return const RegisterPage();
   });
 
   static Handler productsHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+             print("products screen");
     return ProductsPage();
   });
 
+  static Handler fRTabbarHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return FRTabbarScreen();
+  });
   static Handler productHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     int? productId = params['productId'] != null
@@ -64,7 +71,8 @@ class AppRouter {
             )),
       );
     });
-    fluroRouter.define('/', handler: productsHandler);
+    fluroRouter.define('/poducts', handler: fRTabbarHandler);
+    fluroRouter.define('/', handler: fRTabbarHandler);
     fluroRouter.define('settings', handler: settingsHandler);
     fluroRouter.define('login', handler: loginHandler);
     fluroRouter.define('register', handler: registerHandler);

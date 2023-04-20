@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:e_commerce_example_flutter/core/pages/home/search_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,21 +28,21 @@ class ProductsPage extends ConsumerWidget {
         }
       }
     });
-    return Scaffold(
-      body: CustomScrollView(
-        controller: _scrollController,
-        restorationId: "products_list",
-        slivers: const [
-          CustomAppBar(),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 10,
-            ),
-          ),
-          ProductItemsWidget(),
-          NoMoreItems(),
-          OnNextBottomWidget(),
-        ],
+    return Container(
+      height: 500,
+      child: Scaffold(
+        body: CustomScrollView(
+          controller: _scrollController,
+          restorationId: "products_list",
+          slivers: const [
+            //CustomAppBar(),
+            SliverToBoxAdapter(child: SearchField()),
+
+            ProductItemsWidget(),
+            NoMoreItems(),
+            OnNextBottomWidget(),
+          ],
+        ),
       ),
     );
   }
@@ -115,7 +116,7 @@ class CartIcon extends StatelessWidget {
     return IconButton(
       onPressed: () => Navigator.of(context).pushNamed('cart'),
       icon: const Icon(
-        Icons.shopping_cart,
+        Icons.shopping_bag,
         size: 31,
       ),
     );

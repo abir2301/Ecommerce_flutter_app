@@ -23,7 +23,7 @@ class Loading extends StatefulWidget {
   double size;
   Color color;
 
-  Loading({this.indicator, this.size = 50.0, this.color = CColors.orange});
+  Loading({this.indicator, this.size = 50.0, this.color = Colors.grey});
 
   @override
   State<StatefulWidget> createState() => LoadingState(indicator!, size);
