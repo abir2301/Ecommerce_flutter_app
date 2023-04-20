@@ -105,7 +105,7 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 15.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.normal),
                       ),
                     )
@@ -127,7 +127,7 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                            color: CColors.orange,
+                            color: Colors.black,
                             fontSize: 12.sp,
                           )),
                     ),
@@ -151,7 +151,7 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                              color: CColors.orange,
+                              color: Colors.black,
                               fontSize: 12.sp,
                               fontWeight: FontWeight.normal)),
                     ),
@@ -176,7 +176,7 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                              color: CColors.orange,
+                              color: CColors.black,
                               fontSize: 12.sp,
                               fontWeight: FontWeight.normal)),
                     ),

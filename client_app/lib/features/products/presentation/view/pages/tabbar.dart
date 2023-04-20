@@ -48,7 +48,6 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
     HomeScreen(),
     const CartPage(),
     const TestScreen(title: 'Orders'),
-    //const TestScreen(title: 'Wallet'),
     const ProfileScreen(),
 
     const SettingsPage()

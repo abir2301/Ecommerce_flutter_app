@@ -59,8 +59,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     });
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: CColors.red,
         title: Text(
           'login'.tr(),
+          style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         actions: [
@@ -70,16 +72,23 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: ListView(children: [
+        Center(
           child: Container(
-            width: 500,
+            width: MediaQuery.of(context).size.height * 0.8,
             padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/logo.png'),
+                // Text(
+                //   'login'.tr(),
+                //   style: const TextStyle(color: Colors.black, fontSize: 30),
+                // ),
+                SizedBox(
+                  height: 20,
+                ),
+                Image.asset('assets/images/logoApp.png'),
                 QitTextField(
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
@@ -88,6 +97,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         });
                       }
                     },
+                    color: CColors.black,
                     keyboardType: TextInputType.emailAddress,
                     errorText: _emailError,
                     suffixIcon: const Icon(Icons.person_sharp, size: 30),
@@ -95,6 +105,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     controller: _emailController),
                 const SizedBox(height: 8),
                 QitTextField(
+                    color: CColors.black,
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
                         setState(() {
@@ -111,7 +122,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: state.isLoading ? null : _onSubmitted,
-                  style: ElevatedButton.styleFrom(primary: CColors.orange),
+                  style: ElevatedButton.styleFrom(primary: CColors.red),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -165,16 +176,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     );
                   },
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+
                 TextButton(
                     onPressed: () =>
                         Navigator.of(context).popAndPushNamed('register'),
                     child: const Text(
                       'do_not_have_account',
                       style: TextStyle(
-                        color: CColors.blue,
+                        color: CColors.black,
                         decoration: TextDecoration.underline,
                       ),
                     ).tr())
@@ -182,7 +191,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             ),
           ),
         ),
-      ),
+      ]),
     );
   }
 }

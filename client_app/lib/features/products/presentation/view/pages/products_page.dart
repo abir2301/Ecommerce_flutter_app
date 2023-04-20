@@ -37,7 +37,6 @@ class ProductsPage extends ConsumerWidget {
           slivers: const [
             //CustomAppBar(),
             SliverToBoxAdapter(child: SearchField()),
-
             ProductItemsWidget(),
             NoMoreItems(),
             OnNextBottomWidget(),

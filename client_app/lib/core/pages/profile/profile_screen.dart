@@ -1,5 +1,12 @@
 import 'package:e_commerce_example_flutter/core/pages/profile/header.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../features/auth/presentation/providers.dart';
+import '../../../features/auth/presentation/view/widgets/profile_widget.dart';
+import '../../constants/theme/colors.dart';
 
 typedef ProfileOptionTap = void Function();
 
@@ -59,13 +66,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _darkModel(),
         ProfileOption.arrow(
             title: 'Help Center', icon: _profileIcon('info_square@2x.png')),
-        ProfileOption.arrow(
-            title: 'Invite Friends', icon: _profileIcon('user@2x.png')),
-        ProfileOption(
-          title: 'Logout',
-          icon: _profileIcon('logout@2x.png'),
-          titleColor: const Color(0xFFF75555),
-        ),
       ];
 
   _languageOption() => ProfileOption(
@@ -116,6 +116,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ]),
           ),
           _buildBody(),
+          const SliverList(
+            delegate: SliverChildListDelegate.fixed([
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: ProfileButton(),
+              ),
+            ]),
+          ),
         ],
       ),
     );

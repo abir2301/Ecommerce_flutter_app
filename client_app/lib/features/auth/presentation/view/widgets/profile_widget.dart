@@ -55,25 +55,27 @@ class _ProfileDetailsWidgetState extends ConsumerState<ProfileDetailsWidget> {
     return user != null
         ? Column(children: [
             CircleAvatar(
-                radius: 80,
-                backgroundColor: CColors.orange,
+                radius: 50,
+                backgroundColor: Colors.pink,
                 child: Text(user!.name[0],
-                    style: TextStyle(fontSize: 60.sp, color: Colors.white))),
+                    style: TextStyle(fontSize: 50.sp, color: Colors.white))),
             const SizedBox(height: 10),
-            QitTextField(
-              labelText: 'name'.tr(),
-              controller: TextEditingController(text: user!.name),
-              enabled: false,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: QitTextField(
+                labelText: 'name'.tr(),
+                controller: TextEditingController(text: user!.name),
+                enabled: false,
+              ),
             ),
-            const SizedBox(
-              height: 8,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: QitTextField(
+                labelText: 'email'.tr(),
+                controller: TextEditingController(text: user!.email),
+                enabled: false,
+              ),
             ),
-            QitTextField(
-              labelText: 'email'.tr(),
-              controller: TextEditingController(text: user!.email),
-              enabled: false,
-            ),
-            const SizedBox(height: 10),
           ])
         : Container();
   }
@@ -101,7 +103,7 @@ class ProfileButton extends ConsumerWidget {
           loggedIn: (_) => () => logout(ref),
           registered: (_) => () => logout(ref),
           checked: (_) => () => logout(ref)),
-      style: ElevatedButton.styleFrom(primary: CColors.orange),
+      style: ElevatedButton.styleFrom(primary: Color(0xFFF75555)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(

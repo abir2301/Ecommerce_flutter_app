@@ -86,10 +86,16 @@ class CartSummaryTextsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('items_number',
-                      style: TextStyle(color: CColors.orange, fontSize: 18.sp))
+                      style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp))
                   .tr(),
               Text('$itemsNumber',
-                  style: TextStyle(color: CColors.orange, fontSize: 18.sp)),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.sp)),
             ],
           ),
         ),
@@ -100,10 +106,16 @@ class CartSummaryTextsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('total_amount',
-                      style: TextStyle(color: CColors.orange, fontSize: 18.sp))
+                      style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.sp))
                   .tr(),
               Text('$totalPriceValue $currency',
-                  style: TextStyle(color: CColors.orange, fontSize: 18.sp)),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.sp)),
             ],
           ),
         ),

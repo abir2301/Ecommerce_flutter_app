@@ -1,4 +1,5 @@
 import 'package:e_commerce_example_flutter/core/pages/home/components/special_offer_widget.dart';
+import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/products_page.dart';
 import 'package:flutter/material.dart';
 
 import 'model/category.dart';
@@ -63,8 +64,10 @@ class _SpecialOffersState extends State<SpecialOffers> {
           itemBuilder: ((context, index) {
             final data = categories[index];
             return GestureDetector(
-              onTap: () =>
-                  Navigator.pushNamed(context, MostPopularScreen.route()),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductsPage()),
+              ),
               child: Column(
                 children: [
                   Container(

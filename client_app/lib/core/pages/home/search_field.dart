@@ -29,10 +29,7 @@ class SearchField extends StatelessWidget {
               fontSize: 14,
               color: Color(0xFFBDBDBD),
             ),
-            labelStyle: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF212121),
-            ),
+            
           ),
         ),
       ),

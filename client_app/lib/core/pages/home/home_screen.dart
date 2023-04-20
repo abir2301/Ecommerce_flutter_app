@@ -2,6 +2,7 @@ import 'package:e_commerce_example_flutter/core/pages/home/components/product_ca
 import 'package:e_commerce_example_flutter/core/pages/home/hearder.dart';
 import 'package:e_commerce_example_flutter/core/pages/home/search_field.dart';
 import 'package:e_commerce_example_flutter/core/pages/home/special_offer.dart';
+import 'package:e_commerce_example_flutter/core/pages/home/special_offers/special_offers_screen.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/product_page.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,25 @@ class _HomeScreenState extends State<HomeScreen> {
             flexibleSpace: HomeAppBar(),
           ),
         ),
+        // SliverPadding(
+        //   padding: padding,
+        //   sliver: SliverList(
+        //     delegate: SliverChildBuilderDelegate(
+        //       ((context, index) => MostPupularCategory()),
+        //       childCount: 1,
+        //     ),
+        //   ),
+        // ),
+        SliverPadding(
+          padding: padding,
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              ((context, index) => SpecialOffers(
+                  onTapSeeAll: () => _onTapSpecialOffersSeeAll(context))),
+              childCount: 1,
+            ),
+          ),
+        ),
         SliverPadding(
           padding: padding,
           sliver: SliverList(
@@ -52,14 +72,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _onTapSpecialOffersSeeAll(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SpecialOfferScreen()),
+    );
+  }
+
   Widget _buildBody(BuildContext context) {
     return Column(
       children: [
         ProductsPage()
         // const SearchField(),
         // const SizedBox(height: 24),
-       // SpecialOffers(onTapSeeAll: () => _onTapSpecialOffersSeeAll(context)),
-       // const SizedBox(height: 24),
+        // SpecialOffers(onTapSeeAll: () => _onTapSpecialOffersSeeAll(context)),
+        // const SizedBox(height: 24),
         // // MostPopularTitle(onTapseeAll: () => _onTapMostPopularSeeAll(context)),
         // const SizedBox(height: 24),
         // const MostPupularCategory(),

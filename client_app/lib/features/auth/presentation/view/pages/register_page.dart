@@ -75,7 +75,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     });
     return Scaffold(
       appBar: AppBar(
-        title: Text('register_title'.tr(), style: TextStyle(fontSize: 17.sp)),
+        backgroundColor: CColors.red,
+        title: Text('register_title'.tr(),
+            style: TextStyle(fontSize: 17.sp, color: CColors.black)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -93,8 +95,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/logo.png'),
+                Image.asset('assets/images/logoApp.png'),
                 QitTextField(
+                    color: CColors.black,
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
                         setState(() {
@@ -107,6 +110,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     controller: _nameController),
                 const SizedBox(height: 8),
                 QitTextField(
+                    color: CColors.black,
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
                         setState(() {
@@ -121,6 +125,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     controller: _emailController),
                 const SizedBox(height: 8),
                 QitTextField(
+                    color: CColors.black,
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
                         setState(() {
@@ -135,6 +140,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     controller: _passwordController),
                 const SizedBox(height: 10),
                 QitTextField(
+                    suffixIcon: const Icon(Icons.lock, size: 30),
+                    color: CColors.black,
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
                         setState(() {
@@ -150,7 +157,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: state.isLoading ? null : _onSubmitted,
-                  style: ElevatedButton.styleFrom(primary: CColors.orange),
+                  style: ElevatedButton.styleFrom(primary: CColors.red),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -204,16 +211,13 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     );
                   },
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
                 TextButton(
                     onPressed: () =>
                         Navigator.of(context).popAndPushNamed('login'),
                     child: const Text(
                       'already_have_account',
                       style: TextStyle(
-                        color: CColors.blue,
+                        color: CColors.black,
                         decoration: TextDecoration.underline,
                       ),
                     ).tr())

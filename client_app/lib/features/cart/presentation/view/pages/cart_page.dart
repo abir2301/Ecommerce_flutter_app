@@ -16,7 +16,13 @@ class CartPage extends ConsumerWidget {
     final state = ref.watch(cartProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('cart').tr(),
+        title: const Text(
+          'cart',
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
+              color: Color(0xFF212121)),
+        ).tr(),
         centerTitle: true,
         actions: state.maybeWhen(
             orElse: () => null,
@@ -37,14 +43,17 @@ class CartPage extends ConsumerWidget {
             errorRemove: (__, cart, _) =>
                 [CartItemsNumberIcon(itemsNumber: cart.itemsNumber)]),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          SizedBox(height: 10),
-          CartSummaryWidget(),
-          SizedBox(height: 10),
-          Expanded(child: CartItemsWidget())
-        ],
+      body: const Padding(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 10),
+            CartSummaryWidget(),
+            SizedBox(height: 10),
+            Expanded(child: CartItemsWidget())
+          ],
+        ),
       ),
     );
   }
@@ -66,7 +75,7 @@ class CartItemsNumberIcon extends StatelessWidget {
           child: Text('$itemsNumber',
               style: TextStyle(
                 fontSize: 20.sp,
-                color: Colors.red,
+                color: Colors.black,
               ))),
     );
   }
