@@ -6,6 +6,7 @@ import 'package:e_commerce_example_flutter/features/cart/presentation/view/pages
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/product_page.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/products_page.dart';
 
+import 'core/pages/home/home_screen.dart';
 import 'features/auth/presentation/view/pages/login_page.dart';
 import 'features/auth/presentation/view/pages/register_page.dart';
 import 'features/products/presentation/view/pages/tabbar.dart';
@@ -25,19 +26,24 @@ class AppRouter {
 
   static Handler registerHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-        print("regsiter screen");
+    print("regsiter screen");
     return const RegisterPage();
   });
 
   static Handler productsHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-             print("products screen");
+    print("products screen");
     return ProductsPage();
   });
 
   static Handler fRTabbarHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-    return FRTabbarScreen();
+    return const FRTabbarScreen();
+  });
+
+  static Handler homeHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return const HomeScreen();
   });
   static Handler productHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -72,11 +78,14 @@ class AppRouter {
       );
     });
     fluroRouter.define('/poducts', handler: fRTabbarHandler);
-    fluroRouter.define('/', handler: fRTabbarHandler);
+    fluroRouter.define('/', handler: homeHandler);
+    fluroRouter.define('/userAcount', handler: fRTabbarHandler);
+
     fluroRouter.define('settings', handler: settingsHandler);
     fluroRouter.define('login', handler: loginHandler);
     fluroRouter.define('register', handler: registerHandler);
     fluroRouter.define('products', handler: productsHandler);
+    fluroRouter.define('home', handler: homeHandler);
     fluroRouter.define('product/:productId',
         handler: productHandler, transitionType: TransitionType.fadeIn);
     fluroRouter.define('cart', handler: cartHandler);

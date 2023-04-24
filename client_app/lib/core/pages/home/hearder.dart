@@ -92,7 +92,7 @@ class HomeAppBar extends StatelessWidget {
                     ),
                     SizedBox(height: 6),
                     Text(
-                      'Si med ',
+                      'Si med  hhyyye',
                       style: TextStyle(
                         color: Color(0xFF212121),
                         fontWeight: FontWeight.bold,
