@@ -18,16 +18,12 @@ class _SpecialOfferScreenState extends State<SpecialOfferScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: FRAppBar.defaultAppBar(
-      //   context,
-      //   title: 'Special Offers',
-      //   actions: [
-      //     IconButton(
-      //       icon: Image.asset('assets/icons/search@2x.png', scale: 2.0),
-      //       onPressed: () {},
-      //     ),
-      //   ],
-      // ),
+      appBar: AppBar(
+        title: const Text(
+          "Speacila offers screen ",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: ListView.separated(
         padding: const EdgeInsets.all(24),
         itemBuilder: (context, index) {

@@ -24,51 +24,53 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     const padding = EdgeInsets.fromLTRB(24, 24, 24, 0);
 
-    return CustomScrollView(
-      slivers: <Widget>[
-        // CustomAppBar(),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          // CustomAppBar(),
 
-        const SliverPadding(
-          padding: EdgeInsets.only(top: 24),
-          sliver: SliverAppBar(
-            pinned: true,
-            flexibleSpace: HomeAppBar(),
-          ),
-        ),
-        // SliverPadding(
-        //   padding: padding,
-        //   sliver: SliverList(
-        //     delegate: SliverChildBuilderDelegate(
-        //       ((context, index) => MostPupularCategory()),
-        //       childCount: 1,
-        //     ),
-        //   ),
-        // ),
-        SliverPadding(
-          padding: padding,
-          sliver: SliverList(
-            delegate: SliverChildBuilderDelegate(
-              ((context, index) => SpecialOffers(
-                  onTapSeeAll: () => _onTapSpecialOffersSeeAll(context))),
-              childCount: 1,
+          const SliverPadding(
+            padding: EdgeInsets.only(top: 24),
+            sliver: SliverAppBar(
+              pinned: true,
+              flexibleSpace: HomeAppBar(),
             ),
           ),
-        ),
-        SliverPadding(
-          padding: padding,
-          sliver: SliverList(
-            delegate: SliverChildBuilderDelegate(
-              ((context, index) => _buildBody(context)),
-              childCount: 1,
+          // SliverPadding(
+          //   padding: padding,
+          //   sliver: SliverList(
+          //     delegate: SliverChildBuilderDelegate(
+          //       ((context, index) => MostPupularCategory()),
+          //       childCount: 1,
+          //     ),
+          //   ),
+          // ),
+          SliverPadding(
+            padding: padding,
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                ((context, index) => SpecialOffers(
+                    onTapSeeAll: () => _onTapSpecialOffersSeeAll(context))),
+                childCount: 1,
+              ),
             ),
           ),
-        ),
-        // SliverPadding(
-        //   padding: padding,
-        //   sliver: _buildPopulars(),
-        // ),
-        const SliverAppBar(flexibleSpace: SizedBox(height: 24))
-      ],
+          SliverPadding(
+            padding: padding,
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                ((context, index) => _buildBody(context)),
+                childCount: 1,
+              ),
+            ),
+          ),
+          // SliverPadding(
+          //   padding: padding,
+          //   sliver: _buildPopulars(),
+          // ),
+          const SliverAppBar(flexibleSpace: SizedBox(height: 24))
+        ],
+      ),
     );
   }
 

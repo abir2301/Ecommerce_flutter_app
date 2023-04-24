@@ -52,13 +52,13 @@ class UserIcon extends ConsumerWidget {
   }
 }
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends ConsumerWidget {
   const HomeAppBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     const String kIconPath = 'assets/icons';
-
+    final state = ref.watch(authProvider);
     return Container(
       color: Colors.transparent,
       child: Padding(
@@ -76,14 +76,14 @@ class HomeAppBar extends StatelessWidget {
                 radius: 24,
               ),
             ),
-            const Expanded(
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Salem 👋',
                       style: TextStyle(
                         color: Color(0xFF757575),
@@ -92,7 +92,11 @@ class HomeAppBar extends StatelessWidget {
                     ),
                     SizedBox(height: 6),
                     Text(
-                      'Si med ',
+                      " mmd ${state.whenOrNull(unnauthenticated: () => "client", checked: (user) => user.name, loggedIn: (user) => user.name,
+                          // ProfileIcon(userFirstCharacter: user.name[0]),
+                          registered: (user) => user.name
+                          // ProfileIcon(userFirstCharacter: ),
+                          ) as String}",
                       style: TextStyle(
                         color: Color(0xFF212121),
                         fontWeight: FontWeight.bold,

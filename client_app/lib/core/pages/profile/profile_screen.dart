@@ -105,7 +105,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
+      body: 
+      
+      CustomScrollView(
         slivers: [
           const SliverList(
             delegate: SliverChildListDelegate.fixed([

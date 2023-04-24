@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'model/category.dart';
 import 'model/special_offer.dart';
-import 'mostpopular/most_popular_screen.dart';
 
 typedef SpecialOffersOnTapSeeAll = void Function();
 

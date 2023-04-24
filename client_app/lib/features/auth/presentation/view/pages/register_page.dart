@@ -65,7 +65,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     final state = ref.watch(authProvider);
     ref.listen(authProvider, (previous, next) {
       if (next.isRegistered) {
-        Navigator.of(context).pushReplacementNamed('products');
+        Navigator.of(context).pushReplacementNamed('userAcount');
       } else {
         String? error = next.getRegisterError;
         if (error != null) {
