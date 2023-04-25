@@ -40,6 +40,13 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(authProvider);
+    String fnRoute() {
+      if (state.isLoggedIn || state.isRegistered) {
+        return "/userAcount";
+      }
+      return "/";
+    }
+
     final int red = CColors.orange.red;
     final int green = CColors.orange.green;
     final int blue = CColors.orange.blue;
@@ -95,7 +102,7 @@ class _MyAppState extends ConsumerState<MyApp> {
               inputDecorationTheme: inputDecorationTheme(),
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            initialRoute: state.isLoading || state.isRegistered ? "/userAcount" : "/",
+            initialRoute: fnRoute(),
             onGenerateRoute: AppRouter.router.generator,
           );
         });

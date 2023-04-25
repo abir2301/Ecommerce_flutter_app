@@ -75,7 +75,7 @@ class AppRouter {
             )),
       );
     });
-    fluroRouter.define('/poducts', handler: fRTabbarHandler);
+    //fluroRouter.define('/poducts', handler: fRTabbarHandler);
     fluroRouter.define('/', handler: homeHandler);
     fluroRouter.define('/userAcount', handler: fRTabbarHandler);
     fluroRouter.define('settings', handler: settingsHandler);
