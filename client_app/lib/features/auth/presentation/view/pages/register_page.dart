@@ -75,9 +75,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     });
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: CColors.red,
+        // backgroundColor: CColors.red,
         title: Text('register_title'.tr(),
-            style: TextStyle(fontSize: 17.sp, color: CColors.black)),
+            style: TextStyle(
+                fontSize: 17.sp,
+                color: CColors.black,
+                fontWeight: FontWeight.bold)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -90,12 +93,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         child: Center(
           child: Container(
             width: 500,
-            padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+            padding: const EdgeInsets.fromLTRB(50, 0, 50, 10),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/logoApp.png'),
+                Image.asset('assets/images/logo_app.png'),
                 QitTextField(
                     color: CColors.black,
                     onChanged: (txt) {
@@ -108,7 +111,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     errorText: _nameError,
                     labelText: 'name'.tr(),
                     controller: _nameController),
-                const SizedBox(height: 8),
                 QitTextField(
                     color: CColors.black,
                     onChanged: (txt) {
@@ -138,7 +140,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     labelText: 'password'.tr(),
                     obscureText: true,
                     controller: _passwordController),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 QitTextField(
                     suffixIcon: const Icon(Icons.lock, size: 30),
                     color: CColors.black,
@@ -154,7 +156,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     obscureText: true,
                     onSubmitted: (_) => _onSubmitted(),
                     controller: _rePasswordController),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 ElevatedButton(
                   onPressed: state.isLoading ? null : _onSubmitted,
                   style: ElevatedButton.styleFrom(primary: CColors.red),
@@ -217,7 +219,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     child: const Text(
                       'already_have_account',
                       style: TextStyle(
-                        color: CColors.black,
+                        color: CColors.orange,
                         decoration: TextDecoration.underline,
                       ),
                     ).tr())

@@ -1,3 +1,4 @@
+import 'package:e_commerce_example_flutter/features/auth/presentation/states/auth_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:e_commerce_example_flutter/core/cache/cache_helper.dart';
 import 'package:e_commerce_example_flutter/core/network/dio_helper.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/products_page.dart';
 import 'core/constants/theme/colors.dart';
+import 'features/auth/presentation/providers.dart';
 import 'injection_container.dart' as ic;
 
 void main() async {
@@ -27,11 +29,17 @@ void main() async {
           child: const MyApp())));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
+  @override
   Widget build(BuildContext context) {
+    final state = ref.watch(authProvider);
     final int red = CColors.orange.red;
     final int green = CColors.orange.green;
     final int blue = CColors.orange.blue;
@@ -77,7 +85,6 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'E-Commerce App',
             theme: ThemeData(
-             
               scaffoldBackgroundColor: Colors.white,
               fontFamily: 'Urbanist',
               appBarTheme: const AppBarTheme(
@@ -88,6 +95,7 @@ class MyApp extends StatelessWidget {
               inputDecorationTheme: inputDecorationTheme(),
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
+            initialRoute: state.isLoading || state.isRegistered ? "/userAcount" : "/",
             onGenerateRoute: AppRouter.router.generator,
           );
         });

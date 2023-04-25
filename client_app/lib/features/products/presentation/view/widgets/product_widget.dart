@@ -14,6 +14,7 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const borderRadius = BorderRadius.all(Radius.circular(20));
     bool isPhone = MediaQuery.of(context).size.width < 600;
     return ElevatedButton(
       onPressed: () => Navigator.of(context).pushNamed('product/${product.id}'),
@@ -32,31 +33,56 @@ class ProductWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-              child: Image.network(
-                product.image.conversions[isPhone ? 'medium' : 'large'],
-                fit: BoxFit.fill,
-                errorBuilder: (context, error, stackTrace) {
-                  return const SizedBox(
-                      child: Center(
-                          child: Icon(Icons.error_rounded, color: Colors.red)));
-                },
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return SizedBox(
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                            : null,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: borderRadius,
+                color: Color(0xFFeeeeee),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Stack(
+                  fit: StackFit.loose,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15)),
+                      ),
+                      child: Image.network(
+                        product.image.conversions[isPhone ? 'medium' : 'large'],
+                        fit: BoxFit.fill,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const SizedBox(
+                              child: Center(
+                                  child: Icon(Icons.error_rounded,
+                                      color: Colors.red)));
+                        },
+                        loadingBuilder: (BuildContext context, Widget child,
+                            ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return SizedBox(
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
-                  );
-                },
+                    Positioned(
+                      top: 16,
+                      right: 16,
+                      child: Image.asset('assets/icons/not_collected@2x.png',
+                          width: 28, height: 28),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -80,7 +106,7 @@ class ProductWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: Text(
-                  product.price.formatted,
+                  product.price.formatted.substring(3) + " dt",
                   style: TextStyle(
                       fontSize: 15.sp,
                       color: CColors.orange,
@@ -102,7 +128,7 @@ class ProductWidget extends StatelessWidget {
                       }),
                   icon: const Icon(
                     Icons.add_shopping_cart_rounded,
-                    color: CColors.orange,
+                    color: CColors.black,
                   ))
             ],
           )

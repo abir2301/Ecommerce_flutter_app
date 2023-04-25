@@ -47,11 +47,12 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
     bool isPhone = MediaQuery.of(context).size.width < 600;
     return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: const [
-              BoxShadow(color: Colors.grey, blurRadius: 5),
-            ],
-            color: Colors.white),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(color: Colors.grey, blurRadius: 5),
+          ],
+        ),
         child: Stack(
           children: [
             Column(children: [
@@ -106,12 +107,12 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 12.sp,
-                            fontWeight: FontWeight.normal),
+                            fontWeight: FontWeight.bold),
                       ),
                     )
                   : Container(),
               Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                padding: const EdgeInsets.fromLTRB(8, 3, 8, 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -122,11 +123,13 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                         )).tr(),
                     Expanded(
                       child: Text(
-                          '${widget.cartItem.unitPrice.value} ${widget.cartItem.unitPrice.currency}',
+                          //${widget.cartItem.unitPrice.currency}
+                          '${widget.cartItem.unitPrice.value} DT',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             color: Colors.black,
                             fontSize: 12.sp,
                           )),
@@ -151,9 +154,10 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.normal)),
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 12.sp,
+                          )),
                     ),
                   ],
                 ),
@@ -170,15 +174,16 @@ class _CartItemWidgetState extends ConsumerState<CartItemWidget> {
                                 fontWeight: FontWeight.normal))
                         .tr(),
                     Expanded(
+                      //${widget.cartItem.total.currency}
                       child: Text(
-                          '${double.parse(widget.cartItem.total.value)} ${widget.cartItem.total.currency}',
+                          '${double.parse(widget.cartItem.total.value)} DT ',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
                           style: TextStyle(
                               color: CColors.black,
                               fontSize: 12.sp,
-                              fontWeight: FontWeight.normal)),
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),

@@ -87,7 +87,7 @@ class CartSummaryTextsWidget extends StatelessWidget {
             children: [
               Text('items_number',
                       style: TextStyle(
-                          color: Colors.green,
+                          color: CColors.red,
                           fontWeight: FontWeight.bold,
                           fontSize: 18.sp))
                   .tr(),
@@ -111,7 +111,7 @@ class CartSummaryTextsWidget extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 18.sp))
                   .tr(),
-              Text('$totalPriceValue $currency',
+              Text('$totalPriceValue DT',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

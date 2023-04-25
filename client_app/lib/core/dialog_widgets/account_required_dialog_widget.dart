@@ -9,12 +9,13 @@ class AccountRequiredDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('account_required'.tr(),
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 17.sp,
                   )),

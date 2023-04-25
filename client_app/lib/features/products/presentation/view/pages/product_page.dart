@@ -39,7 +39,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
           title: Text(
             'product'.tr(),
           ),
-          centerTitle: true,
+          //   centerTitle: true,
           actions: state.maybeWhen(
               orElse: () => null,
               loaded: (id, product) {
@@ -88,7 +88,10 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                         children: [
                           Text(
                             product.title,
-                            style: TextStyle(fontSize: 20.sp),
+                            style: TextStyle(
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold,
+                                color: CColors.orange),
                           ),
                           const SizedBox(height: 10),
                           ClipRRect(
@@ -128,14 +131,19 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            '${product.price.value} ${product.price.currency}',
+                            '${product.price.value} DT',
                             style: TextStyle(
-                                fontSize: 18.sp, color: CColors.orange),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.sp,
+                                color: CColors.orange),
                           ),
                           const SizedBox(height: 10),
                           Text(
                             product.description,
-                            style: TextStyle(fontSize: 18.sp),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                            ),
                           ),
                         ],
                       ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'model/category.dart';
 import 'model/special_offer.dart';
+import 'mostpopular/most_popular_screen.dart';
 
 typedef SpecialOffersOnTapSeeAll = void Function();
 
@@ -65,7 +66,7 @@ class _SpecialOffersState extends State<SpecialOffers> {
             return GestureDetector(
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProductsPage()),
+                MaterialPageRoute(builder: (context) => MostPopularScreen()),
               ),
               child: Column(
                 children: [

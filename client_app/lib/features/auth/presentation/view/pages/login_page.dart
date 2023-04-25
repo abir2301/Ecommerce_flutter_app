@@ -59,7 +59,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     });
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: CColors.red,
+        // backgroundColor: CColors.white,
         title: Text(
           'login'.tr(),
           style: TextStyle(color: Colors.black),
@@ -76,19 +76,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         Center(
           child: Container(
             width: MediaQuery.of(context).size.height * 0.8,
-            padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+            padding: const EdgeInsets.fromLTRB(50, 0, 50, 10),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Text(
                 //   'login'.tr(),
                 //   style: const TextStyle(color: Colors.black, fontSize: 30),
                 // ),
-                SizedBox(
-                  height: 20,
+
+                Image.asset(
+                  'assets/images/logo_app.png',
+                  //height: MediaQuery.of(context).size.width * 0.8,
                 ),
-                Image.asset('assets/images/logoApp.png'),
                 QitTextField(
                     onChanged: (txt) {
                       if (txt.isNotEmpty) {
@@ -183,7 +184,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     child: const Text(
                       'do_not_have_account',
                       style: TextStyle(
-                        color: CColors.black,
+                        color: CColors.orange,
                         decoration: TextDecoration.underline,
                       ),
                     ).tr())

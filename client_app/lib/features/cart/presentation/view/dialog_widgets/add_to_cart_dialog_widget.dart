@@ -29,12 +29,13 @@ class _AddToCartDialogWidgetState extends State<AddToCartDialogWidget> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('add_product_to_cart',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                  )).tr(),
+                      style: TextStyle(
+                          fontSize: 18.sp, fontWeight: FontWeight.bold))
+                  .tr(),
               const SizedBox(height: 15),
               Text(
                 widget.product.title,
+                textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 17.sp),
               ),
               const SizedBox(height: 10),
@@ -91,9 +92,11 @@ class _AddToCartDialogWidgetState extends State<AddToCartDialogWidget> {
                           style:
                               TextStyle(color: CColors.orange, fontSize: 17.sp))
                       .tr(),
-                  Text(
-                      '${widget.product.price.value} ${widget.product.price.currency}',
-                      style: TextStyle(color: CColors.orange, fontSize: 17.sp)),
+                  Text('${widget.product.price.value} DT',
+                      style: TextStyle(
+                          color: CColors.black,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.bold)),
                 ],
               ),
               const SizedBox(height: 5),
@@ -105,11 +108,14 @@ class _AddToCartDialogWidgetState extends State<AddToCartDialogWidget> {
                               TextStyle(color: CColors.orange, fontSize: 17.sp))
                       .tr(),
                   Text(
-                      '${(double.parse(widget.product.price.value) * productQuantity).toStringAsFixed(2)} ${widget.product.price.currency}',
-                      style: TextStyle(color: CColors.orange, fontSize: 17.sp)),
+                      '${(double.parse(widget.product.price.value) * productQuantity).toStringAsFixed(2)} DT',
+                      style: TextStyle(
+                          color: CColors.black,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.bold)),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               Consumer(
                 builder: (context, ref, child) {
                   final state = ref.watch(cartProvider);

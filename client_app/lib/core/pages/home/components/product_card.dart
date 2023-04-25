@@ -1,6 +1,5 @@
+import 'package:e_commerce_example_flutter/core/pages/home/model/popular.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../features/products/domain/models/product.dart';
 
 typedef ProductCardOnTaped = void Function(Product data);
 
@@ -27,11 +26,12 @@ class ProductCard extends StatelessWidget {
             ),
             child: Stack(
               children: [
-               // Image.asset(data.icon, width: 182, height: 182),
+                Image.asset(data.icon, width: 182, height: 182),
                 Positioned(
                   top: 16,
                   right: 16,
-                  child: Image.asset('assets/icons/not_collected@2x.png', width: 28, height: 28),
+                  child: Image.asset('assets/icons/not_collected@2x.png',
+                      width: 28, height: 28),
                 )
               ],
             ),
@@ -51,8 +51,11 @@ class ProductCard extends StatelessWidget {
           _buildSoldPoint(4.5, 6937),
           const SizedBox(height: 10),
           Text(
-            '\$${data.price.toString}',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF212121)),
+            data.price.toString() + "DT",
+            style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF212121)),
           )
         ],
       ),
@@ -75,7 +78,10 @@ class ProductCard extends StatelessWidget {
         const SizedBox(width: 8),
         const Text(
           '|',
-          style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xFF616161), fontSize: 14),
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF616161),
+              fontSize: 14),
         ),
         const SizedBox(width: 8),
         Container(

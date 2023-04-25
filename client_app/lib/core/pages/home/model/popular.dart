@@ -13,7 +13,13 @@ class Product {
   final String icon;
   final String id;
 
-  Product({this.title = '', this.star = 0.0, this.sold = 0, this.price = 0.0, this.icon = '', this.id = '0'});
+  Product(
+      {this.title = '',
+      this.star = 0.0,
+      this.sold = 0,
+      this.price = 0.0,
+      this.icon = '',
+      this.id = '0'});
 }
 
 final homePopularCategories = [
@@ -42,20 +48,20 @@ final homePopularProducts = [
     price: 145.40,
     icon: 'assets/icons/products/book_case@2x.png',
   ),
-  Product(
-    title: 'Glass Lamp',
-    star: 4.3,
-    sold: 6937,
-    price: 40.00,
-    icon: 'assets/icons/products/lamp.png',
-  ),
-  Product(
-    title: 'Glass Package',
-    star: 4.9,
-    sold: 8174,
-    price: 55.00,
-    icon: 'assets/icons/products/class_package@2x.png',
-  ),
+  // Product(
+  //   title: 'Glass Lamp',
+  //   star: 4.3,
+  //   sold: 6937,
+  //   price: 40.00,
+  //   icon: 'assets/icons/products/lamp.png',
+  // ),
+  // Product(
+  //   title: 'Glass Package',
+  //   star: 4.9,
+  //   sold: 8174,
+  //   price: 55.00,
+  //   icon: 'assets/icons/products/class_package@2x.png',
+  // ),
   Product(
     title: 'Plastic Chair',
     star: 4.6,

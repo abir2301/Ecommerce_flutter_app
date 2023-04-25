@@ -3,21 +3,26 @@ import 'package:e_commerce_example_flutter/core/pages/home/hearder.dart';
 import 'package:e_commerce_example_flutter/core/pages/home/search_field.dart';
 import 'package:e_commerce_example_flutter/core/pages/home/special_offer.dart';
 import 'package:e_commerce_example_flutter/core/pages/home/special_offers/special_offers_screen.dart';
+import 'package:e_commerce_example_flutter/features/auth/presentation/states/auth_state.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/product_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../features/auth/presentation/providers.dart';
 import '../../../features/products/presentation/view/pages/products_page.dart';
+import '../../utils/functions/display_snackbar.dart';
+import '../profile/profile_screen.dart';
 import 'model/popular.dart';
 import 'most_popular.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   late final datas = homePopularProducts;
 
   @override
@@ -36,15 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               flexibleSpace: HomeAppBar(),
             ),
           ),
-          // SliverPadding(
-          //   padding: padding,
-          //   sliver: SliverList(
-          //     delegate: SliverChildBuilderDelegate(
-          //       ((context, index) => MostPupularCategory()),
-          //       childCount: 1,
-          //     ),
-          //   ),
-          // ),
+
           SliverPadding(
             padding: padding,
             sliver: SliverList(
@@ -83,17 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildBody(BuildContext context) {
     return Column(
-      children: [
-        ProductsPage()
-        // const SearchField(),
-        // const SizedBox(height: 24),
-        // SpecialOffers(onTapSeeAll: () => _onTapSpecialOffersSeeAll(context)),
-        // const SizedBox(height: 24),
-        // // MostPopularTitle(onTapseeAll: () => _onTapMostPopularSeeAll(context)),
-        // const SizedBox(height: 24),
-        // const MostPupularCategory(),
-        // ProductsPage()
-      ],
+      children: [ProductsPage()],
     );
   }
 }

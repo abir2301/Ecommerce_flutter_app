@@ -20,7 +20,7 @@ class _SpecialOfferScreenState extends State<SpecialOfferScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Speacila offers screen ",
+          "Special Offers Screen ",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:e_commerce_example_flutter/core/constants/theme/colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,10 +17,11 @@ class CartPage extends ConsumerWidget {
     final state = ref.watch(cartProvider);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           'cart',
           style: TextStyle(
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.bold,
               fontSize: 20,
               color: Color(0xFF212121)),
         ).tr(),
@@ -50,7 +52,7 @@ class CartPage extends ConsumerWidget {
           children: [
             SizedBox(height: 10),
             CartSummaryWidget(),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Expanded(child: CartItemsWidget())
           ],
         ),
@@ -71,7 +73,7 @@ class CartItemsNumberIcon extends StatelessWidget {
     return IconButton(
       onPressed: null,
       icon: CircleAvatar(
-          backgroundColor: Colors.white,
+          backgroundColor: CColors.orange,
           child: Text('$itemsNumber',
               style: TextStyle(
                 fontSize: 20.sp,
