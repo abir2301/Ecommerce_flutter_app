@@ -59,7 +59,9 @@ class HomeAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     const String kIconPath = 'assets/icons';
     final state = ref.watch(authProvider);
-    return Container(
+    return 
+    
+    Container(
       color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -123,5 +125,8 @@ class HomeAppBar extends ConsumerWidget {
         ),
       ),
     );
+  
+  
+  
   }
 }

@@ -27,6 +27,75 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(authProvider);
+    const String kIconPath = 'assets/icons';
+
+    Widget homeAppBar = Container(
+      color: Colors.transparent,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Row(
+          children: [
+            InkWell(
+              borderRadius: const BorderRadius.all(Radius.circular(24)),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              ),
+              child: const CircleAvatar(
+                backgroundImage: AssetImage("assets/icons/me.png"),
+                radius: 24,
+              ),
+            ),
+            const Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Salem 👋',
+                      style: TextStyle(
+                        color: Color(0xFF757575),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                      Text(
+                      "client",
+                      // " mmd ${state.whenOrNull(unnauthenticated: () => "client", checked: (user) => user.name, loggedIn: (user) => user.name,
+                      //     // ProfileIcon(userFirstCharacter: user.name[0]),
+                      //     registered: (user) => user.name
+                      //     // ProfileIcon(userFirstCharacter: ),
+                      //     ) as String}",
+                      style: TextStyle(
+                        color: Color(0xFF212121),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            IconButton(
+              iconSize: 28,
+              icon: Image.asset('assets/icons/notification.png'),
+              onPressed: () {},
+            ),
+            const SizedBox(width: 16),
+            IconButton(
+              iconSize: 28,
+              icon: Image.asset('$kIconPath/light/heart@2x.png'),
+              onPressed: () {},
+            ),
+            UserIcon(),
+          ],
+        ),
+      ),
+    );
+
     const padding = EdgeInsets.fromLTRB(24, 24, 24, 0);
 
     return Scaffold(
@@ -34,11 +103,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         slivers: <Widget>[
           // CustomAppBar(),
 
-          const SliverPadding(
+          SliverPadding(
             padding: EdgeInsets.only(top: 24),
             sliver: SliverAppBar(
               pinned: true,
-              flexibleSpace: HomeAppBar(),
+              flexibleSpace: homeAppBar,
             ),
           ),
 

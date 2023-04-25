@@ -1,13 +1,16 @@
 import 'package:e_commerce_example_flutter/core/pages/settings_page.dart';
+import 'package:e_commerce_example_flutter/features/auth/presentation/states/auth_state.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/products_page.dart';
 import 'package:e_commerce_example_flutter/features/products/presentation/view/pages/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_example_flutter/features/cart/presentation/view/pages/cart_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/pages/home/home_screen.dart';
 import '../../../../../core/pages/profile/profile_screen.dart';
 import '../../../../../image_loader.dart';
 import '../../../../../size_config.dart';
+import '../../../../auth/presentation/providers.dart';
 // import 'package:fresh_store_ui/image_loader.dart';
 // import 'package:fresh_store_ui/screens/home/home.dart';
 // import 'package:fresh_store_ui/screens/profile/profile_screen.dart';
@@ -33,14 +36,14 @@ class TabbarItem {
   BottomNavigationBarItem get bold => item(true);
 }
 
-class FRTabbarScreen extends StatefulWidget {
+class FRTabbarScreen extends ConsumerStatefulWidget {
   const FRTabbarScreen({super.key});
 
   @override
-  State<FRTabbarScreen> createState() => _FRTabbarScreenState();
+  ConsumerState<FRTabbarScreen> createState() => _FRTabbarScreenState();
 }
 
-class _FRTabbarScreenState extends State<FRTabbarScreen> {
+class _FRTabbarScreenState extends ConsumerState<FRTabbarScreen> {
   int _select = 0;
 
   final screens = [
@@ -96,7 +99,9 @@ class _FRTabbarScreenState extends State<FRTabbarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(authProvider);
     SizeConfig().init(context);
+
     return Scaffold(
       body: screens[_select],
       bottomNavigationBar: BottomNavigationBar(

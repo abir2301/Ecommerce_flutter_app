@@ -1,3 +1,4 @@
+import 'package:e_commerce_example_flutter/main_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
@@ -40,6 +41,10 @@ class AppRouter {
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return FRTabbarScreen();
   });
+  static Handler mainScreenHandler = Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+    return MAinScreen();
+  });
   static Handler productHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     int? productId = params['productId'] != null
@@ -76,7 +81,9 @@ class AppRouter {
       );
     });
     //fluroRouter.define('/poducts', handler: fRTabbarHandler);
-    fluroRouter.define('/', handler: homeHandler);
+    // fluroRouter.define('/poducts', handler: fRTabbarHandler);
+    //  fluroRouter.define('/', handler: fRTabbarHandler);
+    fluroRouter.define('/', handler: mainScreenHandler);
     fluroRouter.define('/userAcount', handler: fRTabbarHandler);
     fluroRouter.define('settings', handler: settingsHandler);
     fluroRouter.define('login', handler: loginHandler);

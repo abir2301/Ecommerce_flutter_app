@@ -40,12 +40,7 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(authProvider);
-    String fnRoute() {
-      if (state.isLoggedIn || state.isRegistered) {
-        return "/userAcount";
-      }
-      return "/";
-    }
+    print("is cheedk egale ${state.isChecked}");
 
     final int red = CColors.orange.red;
     final int green = CColors.orange.green;
@@ -102,7 +97,7 @@ class _MyAppState extends ConsumerState<MyApp> {
               inputDecorationTheme: inputDecorationTheme(),
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            initialRoute: fnRoute(),
+//initialRoute:  state.isChecked ? "userAcount" : "home",
             onGenerateRoute: AppRouter.router.generator,
           );
         });

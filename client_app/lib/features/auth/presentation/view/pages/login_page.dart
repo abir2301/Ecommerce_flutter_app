@@ -49,7 +49,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final state = ref.watch(authProvider);
     ref.listen(authProvider, (previous, next) {
       if (next.isLoggedIn) {
-        Navigator.of(context).pushReplacementNamed('userAcount');
+        Navigator.of(context).pushReplacementNamed('/');
       } else {
         String? error = next.getLoginError;
         if (error != null) {
