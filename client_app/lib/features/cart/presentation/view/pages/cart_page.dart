@@ -9,6 +9,8 @@ import 'package:e_commerce_example_flutter/features/cart/presentation/providers.
 import 'package:e_commerce_example_flutter/features/cart/presentation/view/widgets/cart_items_widget.dart';
 import 'package:e_commerce_example_flutter/features/cart/presentation/view/widgets/cart_summary_widget.dart';
 
+import '../../../../paiment/presentation/view/style.dart';
+
 class CartPage extends ConsumerWidget {
   const CartPage({super.key});
 
@@ -20,12 +22,9 @@ class CartPage extends ConsumerWidget {
         automaticallyImplyLeading: false,
         title: const Text(
           'cart',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Color(0xFF212121)),
+          style: kTextHeaderAppBar,
         ).tr(),
-        centerTitle: true,
+        centerTitle: false,
         actions: state.maybeWhen(
             orElse: () => null,
             loaded: (cart) =>

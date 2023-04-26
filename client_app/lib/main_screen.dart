@@ -23,7 +23,7 @@ class _MAinScreenState extends ConsumerState<MAinScreen> {
                 message: "Welcome Dear ",
               ),
           orElse: () => InitialScreen(
-                message: "something went wrong  ",
+                message: "Waiting ",
               ),
           loggingOut: () => HomeScreen(),
           loggedOut: () => HomeScreen(),

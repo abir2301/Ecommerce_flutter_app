@@ -11,6 +11,7 @@ import '../../../../../core/pages/profile/profile_screen.dart';
 import '../../../../../image_loader.dart';
 import '../../../../../size_config.dart';
 import '../../../../auth/presentation/providers.dart';
+import '../../../../paiment/presentation/view/pages/paiment_screen.dart';
 // import 'package:fresh_store_ui/image_loader.dart';
 // import 'package:fresh_store_ui/screens/home/home.dart';
 // import 'package:fresh_store_ui/screens/profile/profile_screen.dart';
@@ -52,7 +53,8 @@ class _FRTabbarScreenState extends ConsumerState<FRTabbarScreen> {
     const CartPage(),
     const TestScreen(title: 'Orders'),
     // const ProfileScreen(),
-    const TestScreen(title: 'wallet screen '),
+    // const TestScreen(title: 'wallet screen '),
+    PaymentPage(),
     const SettingsPage()
   ];
 
