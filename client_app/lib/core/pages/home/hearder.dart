@@ -1,3 +1,4 @@
+import 'package:e_commerce_example_flutter/core/pages/chat/messages.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -59,9 +60,7 @@ class HomeAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     const String kIconPath = 'assets/icons';
     final state = ref.watch(authProvider);
-    return 
-    
-    Container(
+    return Container(
       color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -109,11 +108,17 @@ class HomeAppBar extends ConsumerWidget {
                 ),
               ),
             ),
-            IconButton(
-              iconSize: 28,
-              icon: Image.asset('assets/icons/notification.png'),
-              onPressed: () {},
-            ),
+            // IconButton(
+            //   iconSize: 28,
+            //   icon: Image.asset('assets/icons/notification.png'),
+            //   onPressed: () {
+            //     print("hello not");
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => const Messages()),
+            //     );
+            //   },
+            // ),
             const SizedBox(width: 16),
             IconButton(
               iconSize: 28,
@@ -125,8 +130,5 @@ class HomeAppBar extends ConsumerWidget {
         ),
       ),
     );
-  
-  
-  
   }
 }

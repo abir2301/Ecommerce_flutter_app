@@ -11,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../features/auth/presentation/providers.dart';
 import '../../../features/products/presentation/view/pages/products_page.dart';
 import '../../utils/functions/display_snackbar.dart';
+import '../chat/messages.dart';
 import '../profile/profile_screen.dart';
 import 'model/popular.dart';
 import 'most_popular.dart';
@@ -62,7 +63,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                     ),
                     SizedBox(height: 6),
-                      Text(
+                    Text(
                       "client",
                       // " mmd ${state.whenOrNull(unnauthenticated: () => "client", checked: (user) => user.name, loggedIn: (user) => user.name,
                       //     // ProfileIcon(userFirstCharacter: user.name[0]),
@@ -82,7 +83,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             IconButton(
               iconSize: 28,
               icon: Image.asset('assets/icons/notification.png'),
-              onPressed: () {},
+              onPressed: () {
+                print("hello not");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Messages()),
+                );
+              },
             ),
             const SizedBox(width: 16),
             IconButton(

@@ -46,6 +46,11 @@ dependencies:
   dartz: ^0.10.1
   shared_preferences: ^2.0.20
   connectivity_plus: ^3.0.3
+  gap: ^3.0.0
+  flutter_svg: ^2.0.6
+  percent_indicator: ^4.2.3
+  grouped_list: ^5.1.2
+  chat_bubbles: ^1.4.1
 
 dev_dependencies:
   flutter_test:
